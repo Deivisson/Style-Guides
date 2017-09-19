@@ -7,7 +7,7 @@
 1. [Convenção Nomeação](#convenção-nomeação)
 1. [Nomes de Classes, Estruturas e Interfaces](#nomes-de-classes,-estruturas-e-interfaces)
 1. [Identações](#identacoes)
-
+1. [Comentários](#comentários)
 
 ## Convenção Capitalização
 
@@ -47,14 +47,14 @@ public insterface IPessoa { ... }
 //ruim 
 public class ContaBancaria 
 {
-public static void recuperarPorCodigo { ... }
-public static void recuperar_por_codigo { ... }
+  public static void recuperarPorCodigo { ... }
+  public static void recuperar_por_codigo { ... }
 }
 
 //bom 
 public class ContaBancaria 
 {
-public static void RecuperarPorCodigo { ... }
+  public static void RecuperarPorCodigo { ... }
 }
 ```
 
@@ -63,14 +63,14 @@ public static void RecuperarPorCodigo { ... }
 // ruim
 public class ContaBancaria 
 {
-public int codigoInterno {get;set;}
-public int codigo_interno {get;set;}
+  public int codigoInterno {get;set;}
+  public int codigo_interno {get;set;}
 }
 
 // bom
 public class ContaBancaria 
 {
-public int CodigoInterno {get;set;}
+  public int CodigoInterno {get;set;}
 }
 ```
 
@@ -79,14 +79,14 @@ public int CodigoInterno {get;set;}
 // ruim
 public class ContaBancaria
 {
-public static RecuperarPorCodigo(int CodigoInterno) {...}
-public static RecuperarPorCodigo(int codigo_interno) {...}
+  public static RecuperarPorCodigo(int CodigoInterno) {...}
+  public static RecuperarPorCodigo(int codigo_interno) {...}
 }
 
 // bom
 public class ContaBancaria
 {
-public static RecuperarPorCodigo(int codigoInterno) {...}
+  public static RecuperarPorCodigo(int codigoInterno) {...}
 }
 ```
 
@@ -173,3 +173,9 @@ public class ContaBancaria
 
 	* Não utilize prefixos para indicar pré ou pós eventos, tipo AntesClicado, AposClicado
 	* Utilize dois parametros (sender, e), em event handlers
+
+## Identações
+
+
+## Comentários
+
