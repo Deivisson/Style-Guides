@@ -6,8 +6,8 @@
 1. [Convenção Capitalização](#convenção-capitalização)
 1. [Convenção Nomeação](#convenção-nomeação)
 1. [Nomes de Classes, Estruturas e Interfaces](#nomes-de-classes,-estruturas-e-interfaces)
-1. [Identações](#identacoes)
 1. [Comentários](#comentários)
+1. [Referências](#referências)
 
 ## Convenção Capitalização
 
@@ -74,7 +74,7 @@ public class ContaBancaria
 }
 ```
 
-- Parametros 
+- Parâmetros 
 ```c#
 // ruim
 public class ContaBancaria
@@ -174,8 +174,39 @@ public class ContaBancaria
 	* Não utilize prefixos para indicar pré ou pós eventos, tipo AntesClicado, AposClicado
 	* Utilize dois parametros (sender, e), em event handlers
 
-## Identações
-
-
 ## Comentários
+- Comentário de uma linha
+```c#
+public string ValidarDescricaoProdutoImportado(string descricao)
+{
+  // Foi necessário remover a quebra de linha, para que não ocorra erro ao Exportar Carga de produtos para o PDV 	
+  return descricao.replace('\n','')
+}
+```
 
+- Comantário de Documentação
+
+Utilizado para documentar métodos, classes e etc.. com uma breve descrição do seu objetivo.
+```c#
+/// <summary>
+/// PUT api/produtos/:id
+/// Atualiza informações de determinado produto 
+/// </summary>
+/// <param name="produto">Objeto com atributos a serem atualizados</param>
+/// <returns>Objeto do tipo Produto atualizado</returns>
+public HttpResponseMessage Put(int id, [FromBody]Produto values)
+{
+    Produto produto = Produto.LocalizarPorCodigo(id);
+    HttpResponseMessage response = new HttpResponseMessage(HttpStatusCode.NotFound);
+    if (produto != null)
+    {
+	bool atualizado = produto.AtualizarAtributos(values);
+	response = new HttpResponseMessage(atualizado ? HttpStatusCode.OK : HttpStatusCode.NotModified);
+    }
+    return response;
+}
+```
+
+## Referências
+* https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/inside-a-program/coding-conventions#commenting-conventions
+* https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/index
